@@ -34,8 +34,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :nickname
       t.string :last_name
       t.string :first_name
+      t.string :user_photo_id
       t.string :student_id
-
+      t.string :club_id
       t.timestamps null: false
     end
 
