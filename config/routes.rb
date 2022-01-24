@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'users/index'
   root 'homes#top'
   get 'homes/about' => 'homes#about'
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
 end
