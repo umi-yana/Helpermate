@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'favorites/index'
   get 'post/index'
   get 'users/index'
   root 'homes#top'
@@ -8,4 +9,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+
+  resources :posts do
+    resource :favorite,only:[:create,:destroy]
+end
 end
