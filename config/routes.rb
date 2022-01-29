@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  get 'favorites/index'
-  get 'post/index'
-  get 'users/index'
-  root 'homes#top'
-  get 'homes/about' => 'homes#about'
-  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    passwords: 'users/passwords'
-  }
+  root "homes#top"
+
+  namespace :users do
+    get 'sessions/new_guest'
+  end
+  
+  devise_for :users
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
 
   resources :posts do
     resource :favorite,only:[:create,:destroy]
 end
 end
+
