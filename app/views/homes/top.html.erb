@@ -1,6 +1,16 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
-<%= link_to 'aboutページ',homes_about_path  %>
-<%= link_to '新規登録', new_user_session_path %>
-<%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post %>
-<%= link_to 'ログイン', new_user_registration_path %>
+<div class="container mt-5">
+    <div class="row text-center">
+      <div class="col mt-5">
+            <div class="top-title">
+            <h1>Helpermate</h1>
+              <p>助っ人を探しで困っている方を</p>
+              <p>このSNSが助っ人します！</p>
+              <div><%= link_to 'ログイン', new_user_session_path,class:'btn btn-danger btn-lg mt-3 w-50' %> </div>
+            <div><%= link_to '新規登録', new_user_registration_path,class:'btn btn-primary btn-lg mt-2 w-50' %> </div>
+            <div class="col">
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
